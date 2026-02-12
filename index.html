@@ -1,1 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>EduCet · Greater Noida #1 Computer Institute | Demo Prototype</title>
+  <!-- Google Font + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f6f9fc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- UTILITY / BADGE / BUTTONS ---------- */
+    .badge {
+      display: inline-block;
+      background: linear-gradient(145deg, #0f3b5e, #0a2c47);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: white;
+      color: #0f3b5e;
+      box-shadow: 0 8px 20px rgba(0,80,120,0.08);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #0f3b5e;
+      color: white;
+      box-shadow: 0 8px 18px rgba(15,59,94,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #164e72;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #0f3b5e;
+      color: #0f3b5e;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #0a1c2a;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: #4b5f6b;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    /* ---------- HEADER / DEMO TAG ---------- */
+    .demo-header {
+      background: #0f3b5e;
+      color: white;
+      padding: 12px 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .demo-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-tag {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .demo-tag i {
+      color: #ffd966;
+    }
+
+    .institute-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0a1c2a;
+      line-height: 1.2;
+    }
+
+    .institute-logo span {
+      color: #0f3b5e;
+      background: #e1ecf4;
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 48px 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 45%;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #0a1c2a;
+    }
+
+    .hero-highlight {
+      color: #0f3b5e;
+      border-bottom: 4px solid #ffb347;
+      display: inline-block;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin: 30px 0;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- COURSE GRID ---------- */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px;
+      margin: 40px 0 20px;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 16px 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+      transition: all 0.25s;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 40px rgba(15,59,94,0.08);
+    }
+
+    .course-icon {
+      font-size: 2.5rem;
+      color: #0f3b5e;
+      margin-bottom: 16px;
+    }
+
+    .course-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .syllabus-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #0f3b5e;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .syllabus-link i {
+      margin-right: 6px;
+    }
+
+    .syllabus-link:hover {
+      border-bottom-color: #0f3b5e;
+    }
+
+    /* ---------- TRUST (OM TOWER) ---------- */
+    .trust-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: linear-gradient(145deg, #ffffff, #f2f6f9);
+      padding: 40px 36px;
+      border-radius: 60px 20px 60px 20px;
+      margin: 60px 0;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02), 0 20px 30px rgba(0,0,0,0.02);
+    }
+
+    .trust-card {
+      flex: 1 1 250px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .trust-icon {
+      background: #0f3b5e;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .trust-text h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .trust-text p {
+      color: #3a5668;
+      font-weight: 500;
+    }
+
+    /* ---------- PRICING PLANS (KILLER 3) ---------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 50px 0 20px;
+    }
+
+    .plan-card {
+      background: white;
+      border-radius: 36px;
+      padding: 36px 24px 32px;
+      box-shadow: 0 25px 40px -12px rgba(0,32,64,0.08);
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ecf3f8;
+      position: relative;
+    }
+
+    .plan-card.best-seller {
+      border: 2px solid #0f3b5e;
+      background: white;
+      transform: scale(1.02);
+      box-shadow: 0 30px 50px -10px rgba(15,59,94,0.12);
+    }
+
+    .best-seller-badge {
+      position: absolute;
+      top: -14px;
+      left: 30px;
+      background: #0f3b5e;
+      color: white;
+      padding: 8px 22px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .plan-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .plan-type {
+      color: #4f6f7f;
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .plan-price {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0a1c2a;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .price-duration {
+      font-size: 0.9rem;
+      color: #527a8f;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 20px 0 30px;
+      flex-grow: 1;
+    }
+
+    .plan-features li {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .plan-features i {
+      color: #0f3b5e;
+      width: 20px;
+      text-align: center;
+    }
+
+    .btn-plan {
+      width: 100%;
+      background: #eef3f7;
+      color: #0f3b5e;
+      border-radius: 60px;
+      padding: 14px;
+      font-weight: 700;
+      border: none;
+      transition: 0.2s;
+    }
+
+    .btn-plan:hover {
+      background: #0f3b5e;
+      color: white;
+    }
+
+    /* ---------- REVIEWS (SOCIAL PROOF) ---------- */
+    .reviews-section {
+      background: white;
+      border-radius: 48px;
+      padding: 48px 36px;
+      margin: 70px 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .review-card {
+      background: #f8fdff;
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid #e9f0f5;
+      box-shadow: 0 6px 0 #e2ecf3;
+      transition: 0.2s;
+    }
+
+    .review-card:hover {
+      background: white;
+      border-color: #b8d1dd;
+    }
+
+    .stars {
+      color: #ffb347;
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
+
+    .review-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #2a404e;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer i {
+      background: #0f3b5e;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    /* ---------- CERTIFICATE VERIFICATION MOCKUP (MASTER STROKE) ---------- */
+    .verify-section {
+      background: linear-gradient(120deg, #0a1c2a, #123b50);
+      color: white;
+      padding: 56px 48px;
+      border-radius: 60px 20px 60px 20px;
+      margin: 60px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .verify-content {
+      flex: 1 1 280px;
+    }
+
+    .verify-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .verify-content p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .verify-badge {
+      background: #f4b841;
+      color: #0a1c2a;
+      padding: 8px 22px;
+      border-radius: 60px;
+      font-weight: 700;
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .verify-mockup {
+      flex: 1 1 340px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      padding: 36px 32px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .verify-input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .verify-input-group input {
+      flex: 1 1 180px;
+      padding: 16px 22px;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      outline: none;
+      background: white;
+      color: #0a1c2a;
+    }
+
+    .verify-btn {
+      background: #f4b841;
+      border: none;
+      border-radius: 60px;
+      padding: 0 30px;
+      font-weight: 700;
+      color: #0a1c2a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .verify-btn:hover {
+      background: #ffc966;
+    }
+
+    #verificationResult {
+      background: rgba(0,0,0,0.2);
+      border-radius: 24px;
+      padding: 18px 22px;
+      margin-top: 16px;
+      font-weight: 500;
+      border-left: 6px solid #f4b841;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 48px 0 32px;
+      border-top: 1px solid #dae5ec;
+      margin-top: 40px;
+      color: #3a5e6b;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: repeat(2,1fr); }
+      .review-grid { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.9rem; }
+      .trust-section { flex-direction: column; }
+      .demo-header .container { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 20px; }
+      .plan-card.best-seller { transform: scale(1); }
+    }
+
+    /* demo helper */
+    .demo-watermark {
+      font-size: 0.8rem;
+      color: #6f929f;
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP DEMO BANNER (Quick Tip: Live Prototype) -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="demo-tag">
+        <i class="fas fa-flask"></i> Live Prototype · EduCet Demo
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <span><i class="fas fa-map-pin"></i> Om Tower, Alpha-1, Greater Noida</span>
+        <span><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Simple header with institute name -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 24px 0 8px;">
+      <div class="institute-logo">
+        EduCet <span>Since 2018</span>
+      </div>
+      <div>
+        <span class="badge"><i class="fas fa-star" style="margin-right: 6px;"></i> 500+ Students</span>
+      </div>
+    </div>
+
+    <!-- 1️⃣ HERO SECTION (The Hook) -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>
+          Master the Digital Age at <span class="hero-highlight">EduCet</span><br>
+          Greater Noida's #1 Computer Institute.
+        </h1>
+        <p style="font-size: 1.3rem; color: #2a4d5c; margin-bottom: 24px; font-weight: 500;">
+          Join 500+ successful students. Master Excel, Tally, ADCA, and Python from industry experts.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item"><i class="fas fa-user-graduate" style="color:#0f3b5e;"></i> 500+ Alumni</div>
+          <div class="stat-item"><i class="fas fa-chalkboard-user"></i> Lab + AI tools</div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="alert('📞 Demo class booked! (Demo)')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book a Free Demo Class</button>
+          <button class="btn btn-outline" onclick="alert('📄 Download brochure – Demo')"><i class="fas fa-download"></i> Brochure</button>
+        </div>
+      </div>
+      <div style="flex: 1 1 30%; background: #e5f1f5; border-radius: 40px; padding: 30px; text-align: center; min-width: 240px;">
+        <i class="fas fa-laptop-code" style="font-size: 4rem; color: #0f3b5e;"></i>
+        <p style="margin-top: 16px; font-weight: 700;">“Practical, job-ready skills”</p>
+        <p style="color: #316277;">– Shubham Sir & Avdesh Sir</p>
+      </div>
+    </div>
+
+    <!-- 2️⃣ COURSE GRID (Top 5 courses + Download syllabus) -->
+    <h2 class="section-title" style="margin-top: 30px;">📘 flagship courses</h2>
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-icon"><i class="fas fa-file-excel"></i></div>
+        <h3>Excel Mastery</h3>
+        <a href="#" class="syllabus-link" onclick="alert('📥 Excel syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i class="fas fa-calculator"></i></div>
+        <h3>Tally Prime</h3>
+        <a href="#" class="syllabus-link" onclick="alert('📥 Tally syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i class="fas fa-diploma"></i></div>
+        <h3>ADCA</h3>
+        <a href="#" class="syllabus-link" onclick="alert('📥 ADCA syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i class="fab fa-python"></i></div>
+        <h3>Python</h3>
+        <a href="#" class="syllabus-link" onclick="alert('📥 Python syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i class="fab fa-java"></i></div>
+        <h3>Java Core</h3>
+        <a href="#" class="syllabus-link" onclick="alert('📥 Java syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
+      </div>
+    </div>
+
+    <!-- 3️⃣ TRUST FACTOR – OM TOWER / ALPHA-1 + SIR NAMES -->
+    <div class="trust-section">
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-building"></i></div>
+        <div class="trust-text">
+          <h4>Om Tower, Alpha-1</h4>
+          <p>Greater Noida's best lab infrastructure · AC classrooms · 50+ workstations</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-user-tie"></i></div>
+        <div class="trust-text">
+          <h4>Shubham Sir & Avdesh Sir</h4>
+          <p>Personalized mentorship, 12+ years experience, industry projects</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fas fa-trophy"></i></div>
+        <div class="trust-text">
+          <h4>#1 Rated Institute</h4>
+          <p>4.9 ★ Google reviews · 150+ 5-star ratings</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4️⃣ PRICING PLANS – 3 KILLER PLANS (BEST SELLER HIGHLIGHT) -->
+    <h2 class="section-title" style="margin-bottom: 0;">🚀 plans built for growth</h2>
+    <p class="section-sub">One-time payment · full ownership · admin panel in Growth & Ultimate</p>
+    
+    <div class="pricing-grid">
+      <!-- PLAN A: Starter -->
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-type">Digital Presence</div>
+        <div class="plan-price">₹12,000</div>
+        <div class="price-duration">one-time investment</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> Single page (landing)</li>
+          <li><i class="fas fa-check-circle"></i> Top 5 courses listed</li>
+          <li><i class="fas fa-check-circle"></i> WhatsApp Integration</li>
+          <li><i class="fas fa-check-circle"></i> Gallery + Reviews</li>
+          <li><i class="fas fa-check-circle"></i> Basic SEO setup</li>
+          <li style="color: #8ba0ad;"><i class="fas fa-times-circle"></i> Admin panel</li>
+        </ul>
+        <button class="btn-plan" onclick="alert('✅ Starter plan selected (demo)')">Choose Starter</button>
+      </div>
+      <!-- PLAN B: Growth (BEST SELLER) -->
+      <div class="plan-card best-seller">
+        <div class="best-seller-badge"><i class="fas fa-crown" style="margin-right: 6px;"></i> BEST SELLER</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-type">Lead Machine</div>
+        <div class="plan-price">₹20,000</div>
+        <div class="price-duration">one-time · admin panel</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> Multi-page professional</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited course pages</li>
+          <li><i class="fas fa-check-circle"></i> Custom inquiry + CRM</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Admin Panel (Full Control to Sir)</strong></li>
+          <li><i class="fas fa-check-circle"></i> Blog / News section</li>
+          <li><i class="fas fa-check-circle"></i> Local SEO (Google ranking)</li>
+        </ul>
+        <button class="btn-plan" style="background: #0f3b5e; color: white;" onclick="alert('🔥 Growth plan selected (best seller) – demo')">Choose Growth</button>
+      </div>
+      <!-- PLAN C: Ultimate -->
+      <div class="plan-card">
+        <div class="plan-name">Ultimate</div>
+        <div class="plan-type">Institutional Pro</div>
+        <div class="plan-price">₹35,000</div>
+        <div class="price-duration">one-time · advanced</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> Complete Management Portal</li>
+          <li><i class="fas fa-check-circle"></i> Syllabus + PDF downloads</li>
+          <li><i class="fas fa-check-circle"></i> Auto-Email/SMS notifications</li>
+          <li><i class="fas fa-check-circle"></i> Advanced Admin Control</li>
+          <li><i class="fas fa-check-circle"></i> <span style="font-weight: 700;">Student Certificate Verification</span></li>
+          <li><i class="fas fa-check-circle"></i> Advance SEO + competitor analysis</li>
+        </ul>
+        <button class="btn-plan" onclick="alert('🏆 Ultimate plan (demo) – includes certificate portal')">Choose Ultimate</button>
+      </div>
+    </div>
+    <p style="text-align: right; font-style: italic; color: #316277; margin-top: 0;"><i class="fas fa-shield-alt"></i> Admin panel: you update courses/photos without developer</p>
+
+    <!-- 5️⃣ SOCIAL PROOF – GOOGLE ★★★★★ REVIEWS (CHAMAKTI CARDS) -->
+    <div class="reviews-section">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+        <h2 style="font-size: 2rem; font-weight: 700;">⭐ 5-star love on Google</h2>
+        <span style="background: #f2b736; padding: 10px 24px; border-radius: 60px; font-weight: 700; color: #1e3b4a;"><i class="fas fa-star"></i> 4.9 ★ (210+ reviews)</span>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">“EduCet transformed my career. Shubham Sir’s Excel training got me placed in 2 weeks. Lab is super clean and modern.”</div>
+          <div class="reviewer">
+            <i class="fas fa-user-circle"></i>
+            <div><strong>Priya Sharma</strong> <span style="display: block; font-size: 0.8rem;">ADCA 2024</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">“Greater Noida’s hidden gem. Tally Prime with GST live projects. Avdesh Sir explains like a pro. Highly recommended.”</div>
+          <div class="reviewer">
+            <i class="fas fa-user-circle"></i>
+            <div><strong>Rahul Gupta</strong> <span style="display: block; font-size: 0.8rem;">Tally Pro</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">“The certificate verification system is so professional! My employer checked my credential instantly. Proud to be EduCet student.”</div>
+          <div class="reviewer">
+            <i class="fas fa-user-circle"></i>
+            <div><strong>Anjali Mehta</strong> <span style="display: block; font-size: 0.8rem;">Python batch</span></div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 40px;"><a href="#" style="color:#0f3b5e; font-weight: 700;" onclick="alert('📱 Google reviews page (demo)')"><i class="fas fa-arrow-right"></i> Read all 5-star reviews on Google</a></p>
+    </div>
+
+    <!-- 6️⃣ MASTER STROKE – CERTIFICATE VERIFICATION MOCKUP (LIVE DEMO) -->
+    <div class="verify-section">
+      <div class="verify-content">
+        <span class="verify-badge"><i class="fas fa-ribbon"></i> master stroke</span>
+        <h2>🔐 Student Certificate Verification</h2>
+        <p>Give your institute a professional edge. Employers / students verify certificates instantly — <strong>Greater Noida's first</strong> computer institute with live verification portal.</p>
+        <div style="display: flex; gap: 12px;">
+          <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 60px;"><i class="fas fa-check-circle"></i> Tamper-proof</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 60px;"><i class="fas fa-bolt"></i> Instant result</span>
+        </div>
+      </div>
+      <div class="verify-mockup">
+        <h3 style="font-size: 1.5rem; margin-bottom: 16px; display: flex; gap: 10px;"><i class="fas fa-certificate" style="color: #f4b841;"></i> demo verification</h3>
+        <div class="verify-input-group">
+          <input type="text" id="rollNumberInput" placeholder="Enter roll no. (e.g., CET24012)" value="CET24108">
+          <button class="verify-btn" id="verifyBtn"><i class="fas fa-search"></i> Verify</button>
+        </div>
+        <div id="verificationResult">
+          ⚡ Demo: Try "CET24108" or any roll number
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;"><i class="fas fa-database"></i> Mock system — works instantly. Ultimate plan includes live verification portal.</p>
+      </div>
+    </div>
+
+    <!-- QUICK TIP / LIVE PROTOTYPE REMINDER (AS PER WHATSAPP) -->
+    <div style="background: #e2eef4; border-radius: 40px; padding: 32px; margin: 40px 0; text-align: center; border-left: 10px solid #0f3b5e;">
+      <i class="fas fa-rocket" style="font-size: 2.5rem; color: #0f3b5e;"></i>
+      <h3 style="font-size: 1.8rem; margin: 16px 0 8px;">🎯 Live prototype — exactly how EduCet looks</h3>
+      <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">You see the courses, verification mock, pricing & admin control. This is the actual feel. All set for Shubham Sir & team.</p>
+    </div>
+
+    <!-- FOOTER (KUNAL's CRED) -->
+    <footer>
+      <div>
+        <span style="font-size: 1.6rem; font-weight: 800;">EduCet</span><br>
+        <span style="color: #3c6e7e;">#1 computer institute, Greater Noida</span>
+      </div>
+      <div class="demo-watermark">
+        <i class="fas fa-code"></i> Demo prototype by Kunal Pratap Singh<br>
+        📄 PDF & full proposal ready • 3 custom plans
+      </div>
+    </footer>
+  </div>
+
+  <!-- simple JS for certificate mock + interactive demo alerts -->
+  <script>
+    (function() {
+      // Certificate verification simulation – master stroke
+      const verifyBtn = document.getElementById('verifyBtn');
+      const rollInput = document.getElementById('rollNumberInput');
+      const resultDiv = document.getElementById('verificationResult');
+
+      function mockVerify() {
+        let roll = rollInput.value.trim();
+        if (roll === "") {
+          resultDiv.innerHTML = "⚠️ Please enter a roll number (demo)";
+          return;
+        }
+        // Mock database: any number > 5 chars shows success
+        const mockStudents = [
+          { roll: "CET24108", name: "Riya Singh", course: "ADCA", year: "2024" },
+          { roll: "CET24056", name: "Arjun Kapoor", course: "Python Pro", year: "2024" },
+          { roll: "CET23999", name: "Neha Verma", course: "Tally Prime", year: "2023" },
+        ];
+        let found = mockStudents.find(s => s.roll.toLowerCase() === roll.toLowerCase());
+        if (found) {
+          resultDiv.innerHTML = `✅ <strong>Certificate verified</strong> · ${found.name} | ${found.course} (${found.year}) <i class="fas fa-check-circle" style="color:#a5d6a5;"></i>`;
+        } else {
+          // demo : still show mock positive (for presentation)
+          resultDiv.innerHTML = `✅ <strong>Certificate found (demo)</strong> · Student: ${roll.toUpperCase()}, Course: ADCA / Python, Pass: 2024 <span style="background: #f4b841; color: black; padding: 4px 8px; border-radius: 40px; margin-left: 8px;">valid</span>`;
+        }
+      }
+
+      if (verifyBtn) {
+        verifyBtn.addEventListener('click', mockVerify);
+      }
+      if (rollInput) {
+        rollInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            mockVerify();
+          }
+        });
+      }
+
+      // also attach download syllabus demo (already inline) + all demo buttons consistent
+      // add quick alert to "Book free demo"
+      // already inline
+    })();
+
+    // extra: manual for any missed buttons (static alerts)
+    // all plan buttons and demo CTA already have onclick alerts.
+  </script>
+
+  <!-- small note: all download syllabus links prevent default with alert -->
+</body>
+</html>
