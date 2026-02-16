@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-  <title>EduCet · Greater Noida #1 Computer Institute | Demo Prototype</title>
+  <title>EduCet · EdTech LMS Ecosystem | Institute Management</title>
   <!-- Google Font + Font Awesome 6 -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -186,7 +186,7 @@
       flex-wrap: wrap;
     }
 
-    /* ---------- COURSE GRID ---------- */
+    /* ---------- COURSE GRID (same style, can keep or modify) ---------- */
     .course-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -282,7 +282,7 @@
       font-weight: 500;
     }
 
-    /* ---------- PRICING PLANS (KILLER 3) ---------- */
+    /* ---------- PRICING PLANS (NEW ED TECH 3) ---------- */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -302,14 +302,14 @@
       position: relative;
     }
 
-    .plan-card.best-seller {
+    .plan-card.recommended {
       border: 2px solid #0f3b5e;
       background: white;
       transform: scale(1.02);
       box-shadow: 0 30px 50px -10px rgba(15,59,94,0.12);
     }
 
-    .best-seller-badge {
+    .recommended-badge {
       position: absolute;
       top: -14px;
       left: 30px;
@@ -336,11 +336,11 @@
     }
 
     .plan-price {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 800;
       color: #0a1c2a;
       line-height: 1;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .price-duration {
@@ -386,7 +386,47 @@
       color: white;
     }
 
-    /* ---------- REVIEWS (SOCIAL PROOF) ---------- */
+    /* ---------- PITCH & ROI SECTION ---------- */
+    .pitch-box {
+      background: white;
+      border-radius: 40px;
+      padding: 48px 40px;
+      margin: 60px 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+      border: 1px solid #d9e8f0;
+    }
+
+    .pitch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .pitch-item {
+      text-align: center;
+    }
+
+    .pitch-item i {
+      font-size: 2.5rem;
+      color: #0f3b5e;
+      background: #e4f0f7;
+      padding: 20px;
+      border-radius: 60px;
+      margin-bottom: 16px;
+    }
+
+    /* ---------- TECHNICAL WARNING ---------- */
+    .warning-box {
+      background: #fff7e5;
+      border-left: 12px solid #f4b841;
+      border-radius: 30px;
+      padding: 32px 40px;
+      margin: 40px 0;
+      font-size: 1rem;
+    }
+
+    /* ---------- REVIEWS (same style) ---------- */
     .reviews-section {
       background: white;
       border-radius: 48px;
@@ -444,7 +484,7 @@
       border-radius: 50%;
     }
 
-    /* ---------- CERTIFICATE VERIFICATION MOCKUP (MASTER STROKE) ---------- */
+    /* ---------- VERIFICATION / EXAM MOCKUP (updated) ---------- */
     .verify-section {
       background: linear-gradient(120deg, #0a1c2a, #123b50);
       color: white;
@@ -553,12 +593,14 @@
     @media (max-width: 1024px) {
       .pricing-grid { grid-template-columns: repeat(2,1fr); }
       .review-grid { grid-template-columns: repeat(2,1fr); }
+      .pitch-grid { grid-template-columns: repeat(2,1fr); }
     }
 
     @media (max-width: 768px) {
       .hero { flex-direction: column; }
       .pricing-grid { grid-template-columns: 1fr; }
       .review-grid { grid-template-columns: 1fr; }
+      .pitch-grid { grid-template-columns: 1fr; }
       .section-title { font-size: 1.9rem; }
       .trust-section { flex-direction: column; }
       .demo-header .container { flex-direction: column; gap: 8px; }
@@ -566,10 +608,9 @@
 
     @media (max-width: 480px) {
       .container { padding: 0 20px; }
-      .plan-card.best-seller { transform: scale(1); }
+      .plan-card.recommended { transform: scale(1); }
     }
 
-    /* demo helper */
     .demo-watermark {
       font-size: 0.8rem;
       color: #6f929f;
@@ -577,11 +618,11 @@
   </style>
 </head>
 <body>
-  <!-- TOP DEMO BANNER (Quick Tip: Live Prototype) -->
+  <!-- TOP DEMO BANNER -->
   <div class="demo-header">
     <div class="container">
       <div class="demo-tag">
-        <i class="fas fa-flask"></i> Live Prototype · EduCet Demo
+        <i class="fas fa-flask"></i> Live Prototype · EdTech Ecosystem
       </div>
       <div style="display: flex; gap: 20px;">
         <span><i class="fas fa-map-pin"></i> Om Tower, Alpha-1, Greater Noida</span>
@@ -591,7 +632,7 @@
   </div>
 
   <div class="container">
-    <!-- Simple header with institute name -->
+    <!-- header with institute name -->
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 24px 0 8px;">
       <div class="institute-logo">
         EduCet <span>Since 2018</span>
@@ -601,185 +642,162 @@
       </div>
     </div>
 
-    <!-- 1️⃣ HERO SECTION (The Hook) -->
+    <!-- 1️⃣ HERO SECTION (updated EdTech hook) -->
     <div class="hero">
       <div class="hero-content">
         <h1>
-          Master the Digital Age at <span class="hero-highlight">EduCet</span><br>
-          Greater Noida's #1 Computer Institute.
+          Build Your Own <span class="hero-highlight">Mini-Byju's</span><br>
+          Complete EdTech Ecosystem for EduCet
         </h1>
         <p style="font-size: 1.3rem; color: #2a4d5c; margin-bottom: 24px; font-weight: 500;">
-          Join 500+ successful students. Master Excel, Tally, ADCA, and Python from industry experts.
+          From a simple website to full-fledged LMS with online exams, live classes, fees management & student portal.
         </p>
         <div class="hero-stats">
-          <div class="stat-item"><i class="fas fa-user-graduate" style="color:#0f3b5e;"></i> 500+ Alumni</div>
-          <div class="stat-item"><i class="fas fa-chalkboard-user"></i> Lab + AI tools</div>
+          <div class="stat-item"><i class="fas fa-laptop-house"></i> Institute Manager</div>
+          <div class="stat-item"><i class="fas fa-clock"></i> Automate 80% tasks</div>
         </div>
         <div class="hero-cta">
-          <button class="btn btn-primary" onclick="alert('📞 Demo class booked! (Demo)')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book a Free Demo Class</button>
-          <button class="btn btn-outline" onclick="alert('📄 Download brochure – Demo')"><i class="fas fa-download"></i> Brochure</button>
+          <button class="btn btn-primary" onclick="alert('📞 Get a free consultation (Demo)')"><i class="fas fa-calendar-check"></i> Book Free Demo</button>
+          <button class="btn btn-outline" onclick="alert('📄 Download EdTech brochure – Demo')"><i class="fas fa-download"></i> Brochure</button>
         </div>
       </div>
       <div style="flex: 1 1 30%; background: #e5f1f5; border-radius: 40px; padding: 30px; text-align: center; min-width: 240px;">
-        <i class="fas fa-laptop-code" style="font-size: 4rem; color: #0f3b5e;"></i>
-        <p style="margin-top: 16px; font-weight: 700;">“Practical, job-ready skills”</p>
+        <i class="fas fa-chalkboard-user" style="font-size: 4rem; color: #0f3b5e;"></i>
+        <p style="margin-top: 16px; font-weight: 700;">“Staff ka time bachega, bachhon ko premium feel”</p>
         <p style="color: #316277;">– Shubham Sir & Avdesh Sir</p>
       </div>
     </div>
 
-    <!-- 2️⃣ COURSE GRID (Top 5 courses + Download syllabus) -->
+    <!-- 2️⃣ COURSE GRID (quick showcase – can stay similar) -->
     <h2 class="section-title" style="margin-top: 30px;">📘 flagship courses</h2>
     <div class="course-grid">
-      <div class="course-card">
-        <div class="course-icon"><i class="fas fa-file-excel"></i></div>
-        <h3>Excel Mastery</h3>
-        <a href="#" class="syllabus-link" onclick="alert('📥 Excel syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
-      </div>
-      <div class="course-card">
-        <div class="course-icon"><i class="fas fa-calculator"></i></div>
-        <h3>Tally Prime</h3>
-        <a href="#" class="syllabus-link" onclick="alert('📥 Tally syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
-      </div>
-      <div class="course-card">
-        <div class="course-icon"><i class="fas fa-diploma"></i></div>
-        <h3>ADCA</h3>
-        <a href="#" class="syllabus-link" onclick="alert('📥 ADCA syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
-      </div>
-      <div class="course-card">
-        <div class="course-icon"><i class="fab fa-python"></i></div>
-        <h3>Python</h3>
-        <a href="#" class="syllabus-link" onclick="alert('📥 Python syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
-      </div>
-      <div class="course-card">
-        <div class="course-icon"><i class="fab fa-java"></i></div>
-        <h3>Java Core</h3>
-        <a href="#" class="syllabus-link" onclick="alert('📥 Java syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a>
-      </div>
+      <div class="course-card"><div class="course-icon"><i class="fas fa-file-excel"></i></div><h3>Excel Mastery</h3><a href="#" class="syllabus-link" onclick="alert('📥 Excel syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a></div>
+      <div class="course-card"><div class="course-icon"><i class="fas fa-calculator"></i></div><h3>Tally Prime</h3><a href="#" class="syllabus-link" onclick="alert('📥 Tally syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a></div>
+      <div class="course-card"><div class="course-icon"><i class="fas fa-diploma"></i></div><h3>ADCA</h3><a href="#" class="syllabus-link" onclick="alert('📥 ADCA syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a></div>
+      <div class="course-card"><div class="course-icon"><i class="fab fa-python"></i></div><h3>Python</h3><a href="#" class="syllabus-link" onclick="alert('📥 Python syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a></div>
+      <div class="course-card"><div class="course-icon"><i class="fab fa-java"></i></div><h3>Java Core</h3><a href="#" class="syllabus-link" onclick="alert('📥 Java syllabus PDF (demo)'); return false;"><i class="fas fa-download"></i> Download Syllabus</a></div>
     </div>
 
-    <!-- 3️⃣ TRUST FACTOR – OM TOWER / ALPHA-1 + SIR NAMES -->
+    <!-- 3️⃣ TRUST FACTOR unchanged (Om Tower, mentors) -->
     <div class="trust-section">
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-building"></i></div>
-        <div class="trust-text">
-          <h4>Om Tower, Alpha-1</h4>
-          <p>Greater Noida's best lab infrastructure · AC classrooms · 50+ workstations</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-user-tie"></i></div>
-        <div class="trust-text">
-          <h4>Shubham Sir & Avdesh Sir</h4>
-          <p>Personalized mentorship, 12+ years experience, industry projects</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-trophy"></i></div>
-        <div class="trust-text">
-          <h4>#1 Rated Institute</h4>
-          <p>4.9 ★ Google reviews · 150+ 5-star ratings</p>
-        </div>
-      </div>
+      <div class="trust-card"><div class="trust-icon"><i class="fas fa-building"></i></div><div class="trust-text"><h4>Om Tower, Alpha-1</h4><p>Greater Noida's best lab infrastructure · AC classrooms · 50+ workstations</p></div></div>
+      <div class="trust-card"><div class="trust-icon"><i class="fas fa-user-tie"></i></div><div class="trust-text"><h4>Shubham Sir & Avdesh Sir</h4><p>Personalized mentorship, 12+ years experience, industry projects</p></div></div>
+      <div class="trust-card"><div class="trust-icon"><i class="fas fa-trophy"></i></div><div class="trust-text"><h4>#1 Rated Institute</h4><p>4.9 ★ Google reviews · 150+ 5-star ratings</p></div></div>
     </div>
 
-    <!-- 4️⃣ PRICING PLANS – 3 KILLER PLANS (BEST SELLER HIGHLIGHT) -->
-    <h2 class="section-title" style="margin-bottom: 0;">🚀 plans built for growth</h2>
-    <p class="section-sub">One-time payment · full ownership · admin panel in Growth & Ultimate</p>
+    <!-- 4️⃣ NEW PRICING PLANS – EdTech Ecosystem -->
+    <h2 class="section-title" style="margin-bottom: 0;">🚀 The EdTech Digital Ecosystem</h2>
+    <p class="section-sub">Three strategic plans – from web presence to complete LMS (Mini‑Byju’s)</p>
     
     <div class="pricing-grid">
-      <!-- PLAN A: Starter -->
+      <!-- PLAN 1: Digital Presence (Starter) -->
       <div class="plan-card">
-        <div class="plan-name">Starter</div>
-        <div class="plan-type">Digital Presence</div>
-        <div class="plan-price">₹12,000</div>
+        <div class="plan-name">Digital Presence</div>
+        <div class="plan-type">Starter · Marketing & Admissions</div>
+        <div class="plan-price">₹18,000 – ₹22,000</div>
         <div class="price-duration">one-time investment</div>
         <ul class="plan-features">
-          <li><i class="fas fa-check-circle"></i> 4-6 page (landing)</li>
-          <li><i class="fas fa-check-circle"></i> Top 5 courses listed</li>
-          <li><i class="fas fa-check-circle"></i> WhatsApp Integration</li>
-          <li><i class="fas fa-check-circle"></i> Gallery + Reviews</li>
-          <li><i class="fas fa-check-circle"></i> Basic SEO setup</li>
-          <li style="color: #8ba0ad;"><i class="fas fa-times-circle"></i> Admin panel</li>
+          <li><i class="fas fa-check-circle"></i> Up to 7 pages, mobile responsive</li>
+          <li><i class="fas fa-check-circle"></i> Course grid (basic) + syllabus PDF</li>
+          <li><i class="fas fa-check-circle"></i> WhatsApp & admission form</li>
+          <li><i class="fas fa-check-circle"></i> Gallery + Google reviews</li>
+          <li><i class="fas fa-check-circle"></i> Basic SEO + SSL</li>
+          <li style="color: #8ba0ad;"><i class="fas fa-times-circle"></i> Student login / portal</li>
+          <li style="color: #8ba0ad;"><i class="fas fa-times-circle"></i> Payment gateway</li>
         </ul>
         <button class="btn-plan" onclick="alert('✅ Starter plan selected (demo)')">Choose Starter</button>
       </div>
-      <!-- PLAN B: Growth (BEST SELLER) -->
-      <div class="plan-card best-seller">
-        <div class="best-seller-badge"><i class="fas fa-crown" style="margin-right: 6px;"></i> BEST SELLER</div>
-        <div class="plan-name">Growth</div>
-        <div class="plan-type">Lead Machine</div>
-        <div class="plan-price">₹20,000</div>
-        <div class="price-duration">one-time · admin panel</div>
+      <!-- PLAN 2: Institute Manager (Recommended) -->
+      <div class="plan-card recommended">
+        <div class="recommended-badge"><i class="fas fa-crown" style="margin-right: 6px;"></i> RECOMMENDED</div>
+        <div class="plan-name">Institute Manager</div>
+        <div class="plan-type">Automate fees, classes & leads</div>
+        <div class="plan-price">₹35,000 – ₹50,000</div>
+        <div class="price-duration">premium cloud hosting</div>
         <ul class="plan-features">
-          <li><i class="fas fa-check-circle"></i> Multi-page professional</li>
-          <li><i class="fas fa-check-circle"></i> Unlimited course pages</li>
-          <li><i class="fas fa-check-circle"></i> Custom inquiry + CRM</li>
-          <li><i class="fas fa-check-circle"></i> <strong>Admin Panel (Full Control to Sir)</strong></li>
-          <li><i class="fas fa-check-circle"></i> Blog / News section</li>
-          <li><i class="fas fa-check-circle"></i> Local SEO (Google ranking)</li>
+          <li><i class="fas fa-check-circle"></i> Up to 12 pages, premium UI</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Student Portal (login, dashboard)</strong></li>
+          <li><i class="fas fa-check-circle"></i> Payment gateway (Razorpay/PayU) + receipts</li>
+          <li><i class="fas fa-check-circle"></i> Live class links (Zoom/Meet) embedded</li>
+          <li><i class="fas fa-check-circle"></i> Secure study material (PDF/video)</li>
+          <li><i class="fas fa-check-circle"></i> Fees management + auto reminders</li>
+          <li><i class="fas fa-check-circle"></i> Auto email/SMS to admin on inquiry</li>
+          <li style="color: #8ba0ad;"><i class="fas fa-times-circle"></i> Online exam module</li>
         </ul>
-        <button class="btn-plan" style="background: #0f3b5e; color: white;" onclick="alert('🔥 Growth plan selected (best seller) – demo')">Choose Growth</button>
+        <button class="btn-plan" style="background: #0f3b5e; color: white;" onclick="alert('🔥 Institute Manager plan selected – best for automation')">Choose Institute Manager</button>
       </div>
-      <!-- PLAN C: Ultimate -->
+      <!-- PLAN 3: Complete EdTech (Elite) -->
       <div class="plan-card">
-        <div class="plan-name">Ultimate</div>
-        <div class="plan-type">Institutional Pro</div>
-        <div class="plan-price">₹35,000</div>
-        <div class="price-duration">one-time · advanced</div>
+        <div class="plan-name">The Complete EdTech</div>
+        <div class="plan-type">Elite · Full LMS + Exams</div>
+        <div class="plan-price">₹65,000 – ₹80,000</div>
+        <div class="price-duration">dedicated VPS/cloud</div>
         <ul class="plan-features">
-          <li><i class="fas fa-check-circle"></i> Complete Management Portal</li>
-          <li><i class="fas fa-check-circle"></i> Syllabus + PDF downloads</li>
-          <li><i class="fas fa-check-circle"></i> Auto-Email/SMS notifications</li>
-          <li><i class="fas fa-check-circle"></i> Advanced Admin Control</li>
-          <li><i class="fas fa-check-circle"></i> <span style="font-weight: 700;">Student Certificate Verification</span></li>
-          <li><i class="fas fa-check-circle"></i> Advance SEO + competitor analysis</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited pages, high‑end UI/UX</li>
+          <li><i class="fas fa-check-circle"></i> Everything in Institute Manager</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Online exam system (MCQ, timer, auto‑result)</strong></li>
+          <li><i class="fas fa-check-circle"></i> Student analytics dashboard</li>
+          <li><i class="fas fa-check-circle"></i> Automatic e‑certificates on completion</li>
+          <li><i class="fas fa-check-circle"></i> Advanced SEO + competitor analysis</li>
+          <li><i class="fas fa-check-circle"></i> Installment tracking & reminders</li>
+          <li><i class="fas fa-check-circle"></i> Dedicated high‑speed server</li>
         </ul>
-        <button class="btn-plan" onclick="alert('🏆 Ultimate plan (demo) – includes certificate portal')">Choose Ultimate</button>
+        <button class="btn-plan" onclick="alert('🏆 Elite plan (demo) – full LMS with online exams')">Choose Elite</button>
       </div>
     </div>
-    <p style="text-align: right; font-style: italic; color: #316277; margin-top: 0;"><i class="fas fa-shield-alt"></i> Admin panel: you update courses/photos without developer</p>
+    <p style="text-align: right; font-style: italic; color: #316277; margin-top: 0;"><i class="fas fa-shield-alt"></i> All plans include free SSL, lifetime support (installation).</p>
 
-    <!-- 5️⃣ SOCIAL PROOF – GOOGLE ★★★★★ REVIEWS (CHAMAKTI CARDS) -->
+    <!-- 5️⃣ PITCH & ROI SECTION – explain the funnel and savings -->
+    <div class="pitch-box">
+      <h2 class="section-title" style="margin-bottom: 16px;">📈 Why invest in an EdTech ecosystem?</h2>
+      <p style="font-size: 1.2rem; max-width: 900px;">“Sir, aapne jo list bheji hai wo ek complete EdTech software ki hai – <strong>student portal, online exam, timer, live classes, payment gateway</strong>. Isse aapka staff ka time bachega aur bachhon ko ‘premium institute’ ka feel milega.”</p>
+      <div class="pitch-grid">
+        <div class="pitch-item">
+          <i class="fas fa-user-graduate"></i>
+          <h3>Save Staff Cost</h3>
+          <p>A clerk ki salary ~₹12k/month. Portal fees, receipts, attendance auto‑manage karega. One‑time cost = staff ka 3 mahine ka kharcha.</p>
+        </div>
+        <div class="pitch-item">
+          <i class="fas fa-chart-line"></i>
+          <h3>Premium Feel</h3>
+          <p>Dashboard, live classes, online exam – aapka institute Greater Noida me sabse alag dikhega.</p>
+        </div>
+        <div class="pitch-item">
+          <i class="fas fa-rocket"></i>
+          <h3>Flexible Growth</h3>
+          <p>Plan 2 se start karo, online exam (Plan 3) 6 months baad add karo. No lock‑in.</p>
+        </div>
+      </div>
+      <p style="font-size: 1rem; background: #e4f0f7; padding: 16px; border-radius: 60px; display: inline-block; margin-top: 16px;"><i class="fas fa-lightbulb"></i> <strong>Smart Negotiation:</strong> Agar budget issue ho, toh Plan 2 (Institute Manager) le kar start karein, Exam module baad mein integrate karenge.</p>
+    </div>
+
+    <!-- 6️⃣ TECHNICAL WARNING – Important for Kunal to mention -->
+    <div class="warning-box">
+      <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color: #b95b0d; float: left; margin-right: 24px;"></i>
+      <h3 style="font-size: 1.6rem; margin-bottom: 8px;">⚠️ Technical note (only for you, Kunal)</h3>
+      <p><strong>Online exam + payment gateway require VPS/cloud hosting, not basic shared hosting.</strong> Plan 3 (₹60k+) includes dedicated high‑speed server to handle 50+ concurrent exams without crash. Don’t go below ₹60k for full LMS, otherwise support cost will eat your profit.</p>
+      <p style="margin-top: 12px;">✅ Plan 2 runs smoothly on premium cloud hosting (included).</p>
+    </div>
+
+    <!-- 7️⃣ SOCIAL PROOF (reviews) – same as before -->
     <div class="reviews-section">
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
         <h2 style="font-size: 2rem; font-weight: 700;">⭐ 5-star love on Google</h2>
         <span style="background: #f2b736; padding: 10px 24px; border-radius: 60px; font-weight: 700; color: #1e3b4a;"><i class="fas fa-star"></i> 4.9 ★ (210+ reviews)</span>
       </div>
       <div class="review-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">“EduCet transformed my career. Shubham Sir’s Excel training got me placed in 2 weeks. Lab is super clean and modern.”</div>
-          <div class="reviewer">
-            <i class="fas fa-user-circle"></i>
-            <div><strong>Priya Sharma</strong> <span style="display: block; font-size: 0.8rem;">ADCA 2024</span></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">“Greater Noida’s hidden gem. Tally Prime with GST live projects. Avdesh Sir explains like a pro. Highly recommended.”</div>
-          <div class="reviewer">
-            <i class="fas fa-user-circle"></i>
-            <div><strong>Rahul Gupta</strong> <span style="display: block; font-size: 0.8rem;">Tally Pro</span></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">“The certificate verification system is so professional! My employer checked my credential instantly. Proud to be EduCet student.”</div>
-          <div class="reviewer">
-            <i class="fas fa-user-circle"></i>
-            <div><strong>Anjali Mehta</strong> <span style="display: block; font-size: 0.8rem;">Python batch</span></div>
-          </div>
-        </div>
+        <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">“EduCet transformed my career. Shubham Sir’s Excel training got me placed in 2 weeks. Lab is super clean and modern.”</div><div class="reviewer"><i class="fas fa-user-circle"></i><div><strong>Priya Sharma</strong> <span style="display: block; font-size: 0.8rem;">ADCA 2024</span></div></div></div>
+        <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">“Greater Noida’s hidden gem. Tally Prime with GST live projects. Avdesh Sir explains like a pro. Highly recommended.”</div><div class="reviewer"><i class="fas fa-user-circle"></i><div><strong>Rahul Gupta</strong> <span style="display: block; font-size: 0.8rem;">Tally Pro</span></div></div></div>
+        <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">“The certificate verification system is so professional! My employer checked my credential instantly. Proud to be EduCet student.”</div><div class="reviewer"><i class="fas fa-user-circle"></i><div><strong>Anjali Mehta</strong> <span style="display: block; font-size: 0.8rem;">Python batch</span></div></div></div>
       </div>
-      <p style="text-align: center; margin-top: 40px;"><a href="#" style="color:#0f3b5e; font-weight: 700;" onclick="alert('📱 Google reviews page (demo)')"><i class="fas fa-arrow-right"></i> Read all 5-star reviews on Google</a></p>
     </div>
 
-    <!-- 6️⃣ MASTER STROKE – CERTIFICATE VERIFICATION MOCKUP (LIVE DEMO) -->
+    <!-- 8️⃣ MASTER STROKE – Certificate verification + Online exam teaser -->
     <div class="verify-section">
       <div class="verify-content">
-        <span class="verify-badge"><i class="fas fa-ribbon"></i> master stroke</span>
-        <h2>🔐 Student Certificate Verification</h2>
-        <p>Give your institute a professional edge. Employers / students verify certificates instantly — <strong>Greater Noida's first</strong> computer institute with live verification portal.</p>
+        <span class="verify-badge"><i class="fas fa-ribbon"></i> Elite feature</span>
+        <h2>🔐 Student Certificate Verification + Online Exam Demo</h2>
+        <p>Give your institute a professional edge. Employers verify certificates instantly. <strong>Plan 3 includes full MCQ exam engine with timer & auto-result.</strong></p>
         <div style="display: flex; gap: 12px;">
           <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 60px;"><i class="fas fa-check-circle"></i> Tamper-proof</span>
           <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 60px;"><i class="fas fa-bolt"></i> Instant result</span>
@@ -794,18 +812,18 @@
         <div id="verificationResult">
           ⚡ Demo: Try "CET24108" or any roll number
         </div>
-        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;"><i class="fas fa-database"></i> Mock system — works instantly. Ultimate plan includes live verification portal.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;"><i class="fas fa-database"></i> Mock system — works instantly. Ultimate plan includes live verification portal + online exams.</p>
       </div>
     </div>
 
-    <!-- QUICK TIP / LIVE PROTOTYPE REMINDER (AS PER WHATSAPP) -->
+    <!-- QUICK TIP / FINAL REMINDER -->
     <div style="background: #e2eef4; border-radius: 40px; padding: 32px; margin: 40px 0; text-align: center; border-left: 10px solid #0f3b5e;">
       <i class="fas fa-rocket" style="font-size: 2.5rem; color: #0f3b5e;"></i>
-      <h3 style="font-size: 1.8rem; margin: 16px 0 8px;">🎯 Live prototype — exactly how EduCet looks</h3>
-      <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">You see the courses, verification mock, pricing & admin control. This is the actual feel. All set for Shubham Sir & team.</p>
+      <h3 style="font-size: 1.8rem; margin: 16px 0 8px;">🎯 EdTech live prototype – exactly as per your requirement</h3>
+      <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Student portal, fees automation, live classes, exam system — we can build it step by step. Start with Plan 2, add Plan 3 later.</p>
     </div>
 
-    <!-- FOOTER (KUNAL's CRED) -->
+    <!-- FOOTER -->
     <footer>
       <div>
         <span style="font-size: 1.6rem; font-weight: 800;">EduCet</span><br>
@@ -813,15 +831,14 @@
       </div>
       <div class="demo-watermark">
         <i class="fas fa-code"></i> Demo prototype by Kunal Pratap Singh<br>
-        📄 PDF & full proposal ready • 3 custom plans
+        📄 3‑plan EdTech proposal · LMS · Online exam
       </div>
     </footer>
   </div>
 
-  <!-- simple JS for certificate mock + interactive demo alerts -->
+  <!-- Certificate verification JS (same as before) -->
   <script>
     (function() {
-      // Certificate verification simulation – master stroke
       const verifyBtn = document.getElementById('verifyBtn');
       const rollInput = document.getElementById('rollNumberInput');
       const resultDiv = document.getElementById('verificationResult');
@@ -832,7 +849,6 @@
           resultDiv.innerHTML = "⚠️ Please enter a roll number (demo)";
           return;
         }
-        // Mock database: any number > 5 chars shows success
         const mockStudents = [
           { roll: "CET24108", name: "Riya Singh", course: "ADCA", year: "2024" },
           { roll: "CET24056", name: "Arjun Kapoor", course: "Python Pro", year: "2024" },
@@ -842,7 +858,6 @@
         if (found) {
           resultDiv.innerHTML = `✅ <strong>Certificate verified</strong> · ${found.name} | ${found.course} (${found.year}) <i class="fas fa-check-circle" style="color:#a5d6a5;"></i>`;
         } else {
-          // demo : still show mock positive (for presentation)
           resultDiv.innerHTML = `✅ <strong>Certificate found (demo)</strong> · Student: ${roll.toUpperCase()}, Course: ADCA / Python, Pass: 2024 <span style="background: #f4b841; color: black; padding: 4px 8px; border-radius: 40px; margin-left: 8px;">valid</span>`;
         }
       }
@@ -852,21 +867,10 @@
       }
       if (rollInput) {
         rollInput.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') {
-            mockVerify();
-          }
+          if (e.key === 'Enter') mockVerify();
         });
       }
-
-      // also attach download syllabus demo (already inline) + all demo buttons consistent
-      // add quick alert to "Book free demo"
-      // already inline
     })();
-
-    // extra: manual for any missed buttons (static alerts)
-    // all plan buttons and demo CTA already have onclick alerts.
   </script>
-
-  <!-- small note: all download syllabus links prevent default with alert -->
 </body>
 </html>
